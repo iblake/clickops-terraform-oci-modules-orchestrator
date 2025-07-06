@@ -176,3 +176,10 @@ resource "local_file" "nlbs_output" {
   "nlbs_public_ips" : { for k, v in module.oci_lz_nlb[0].nlbs_public_ips : k => { "private_ip_id" : v.private_ip_id, "id" : v.id } } })
   filename = "${var.output_path}/nlbs_output.json"
 }
+
+# ADB
+output "autonomous_databases_connection_strings" {
+  description = "The autonomous databases connection strings"
+  value       = length(module.oci_lz_autonomous_databases) > 0 ? module.oci_lz_autonomous_databases[0].autonomous_databases_connection_strings : null
+  sensitive   = true
+}
