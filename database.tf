@@ -1,6 +1,6 @@
 module "oci_lz_autonomous_databases" {
   count  = var.autonomous_databases_configuration != null ? 1 : 0
-  source = "./modules/terraform-oci-adb"
+  source = "git::https://github.com/iblake/terraform-oci-adb-orchestrator.git//module"
   providers = {
     oci = oci
   }
