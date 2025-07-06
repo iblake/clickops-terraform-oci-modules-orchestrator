@@ -225,3 +225,9 @@ variable "output_path" {
   type    = string
   default = null
 }
+
+# ADB
+variable "autonomous_databases_configuration" {
+  type    = any
+  default = null
+}
